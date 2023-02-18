@@ -10,6 +10,13 @@ public class TerritotyApplication {
 		return new ModelMapper();
 	}*/
 
+
+	/**
+	 *
+	 *
+	 * @param args
+	 */
+
 	public static void main(String[] args) {
 		SpringApplication.run(TerritotyApplication.class, args);
 	}
