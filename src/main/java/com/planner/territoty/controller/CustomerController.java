@@ -1,7 +1,12 @@
 package com.planner.territoty.controller;
 
 import com.planner.territoty.Customer;
+import com.planner.territoty.model.PlanParameter;
 import com.planner.territoty.service.CustomerService;
+import com.planner.territoty.service.TerritoryService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +20,33 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    /*@Operation(
+    @Autowired
+    TerritoryService territoryService;
+
+    @Operation(
+            operationId = "createPlan",
+            summary = "Used To Create Plan",
+            tags = {"/customer/createPlan"},
+
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200", description = "OK",
+                            content = {
+                                    @Content(mediaType = "application/json")
+                            }
+                    )
+            }
+    )
+    @CrossOrigin(origins = "*")
+    @GetMapping(value="/customer/createPlan")
+    public String createPlan(PlanParameter planParameter){
+        territoryService.createPlan(planParameter);
+        return "create plan";
+    }
+
+
+
+    @Operation(
             operationId = "getCustomers",
             summary = "Used To Get All Customers",
             tags = {"/customer/getCustomers"},
@@ -28,17 +59,34 @@ public class CustomerController {
                             }
                     )
             }
-    )*/
+    )
     @CrossOrigin(origins = "*")
     @GetMapping(value="/customer/getCustomers")
     public List<Customer> getCustomers(){
         return customerService.getCustomerList();
     }
 
+
+    @Operation(
+            operationId = "calculateDistanceX",
+            summary = "Used To Calculate Distance",
+            tags = {"/customer/calculateDistance"},
+
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200", description = "OK",
+                            content = {
+                                    @Content(mediaType = "application/json")
+                            }
+                    )
+            }
+    )
     @CrossOrigin(origins = "*")
     @GetMapping(value="/customer/calculateDistance")
     public List<Customer> calculateDistanceX(){
         return customerService.calculateDistance();
 
     }
+
+
 }
