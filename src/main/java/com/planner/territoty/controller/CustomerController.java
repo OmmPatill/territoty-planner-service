@@ -34,4 +34,11 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         return customerService.getCustomerList();
     }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value="/customer/calculateDistance")
+    public List<Customer> calculateDistanceX(){
+        return customerService.calculateDistance();
+
+    }
 }

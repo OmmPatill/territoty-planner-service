@@ -9,4 +9,5 @@ import java.util.List;
 public interface CustomerService {
 
     List<Customer> getCustomerList();
+    List<Customer> calculateDistance();
 }

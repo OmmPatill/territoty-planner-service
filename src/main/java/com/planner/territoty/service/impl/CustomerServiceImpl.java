@@ -1,6 +1,7 @@
 package com.planner.territoty.service.impl;
 
 import com.planner.territoty.Customer;
+import com.planner.territoty.businessservice.DistanceMatrixBusinessService;
 import com.planner.territoty.entity.CustomerEntity;
 import com.planner.territoty.repository.CustomerRepository;
 import com.planner.territoty.service.CustomerService;
@@ -12,9 +13,12 @@ import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    
+
     @Autowired
     CustomerRepository customerRepository;
+
+    @Autowired
+    DistanceMatrixBusinessService distanceMatrixBusinessService;
     @Override
     public List<Customer> getCustomerList() {
         List<CustomerEntity> customerEntityList = customerRepository.findAll();
@@ -32,4 +36,12 @@ public class CustomerServiceImpl implements CustomerService {
 
         return customerList;
     }
+
+    @Override
+    public List<Customer> calculateDistance() {
+        List<Customer> customerList = getCustomerList();
+        return distanceMatrixBusinessService.calculateOutletDistance(customerList);
+
+    }
+
 }
