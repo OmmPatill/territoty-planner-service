@@ -1,0 +1,9 @@
+swagger url :
+    http://localhost:8082/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/createPlan/createPlan_1
+
+Request:
+    Post :
+        territoryPlanner/createPlan
+
+RequestBody :
+    1
