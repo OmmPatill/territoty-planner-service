@@ -55,29 +55,7 @@ public class TerritoryPlannerProcessorImpl implements TerritoryPlannerProcessor 
             if (plnParameterLst != null) {
                 plnParameter = model.getPlanParameterLst().get(0);
 
-                /***
-                 * validation for working days 4 , 5 and half days
-                 */
-                Set<Integer> uniqueFrequency = new HashSet<Integer>();
-                outletList.stream().filter(p -> uniqueFrequency.add(p.getVisitFrequency())).collect(Collectors.toList());
-
-                if (plnParameter.getWorkDayInWeek() == 4 && uniqueFrequency.contains(12)) {
-                    throw new Exception(
-                            "Location frequency must be 1,2,4,8,16 for 4 working days in week");
-                } else if (plnParameter.getWorkDayInWeek() == 5
-                        && uniqueFrequency.contains(12)) {
-                    throw new Exception("Location frequency must be 1,2,4,8,16,20 for 5 working days in week");
-                }
-
-                if(plnParameter.getHalfDayFlag() && (plnParameter.getWorkDayInWeek() == 5 || plnParameter.getWorkDayInWeek() == 4)) {
-                    throw new Exception("Please run half day plan for only 5 and half working days.");
-                }
-
-                if(plnParameter.getPlanMode().equalsIgnoreCase("Value") && plnParameter.getTelecallingPlanFlag() == 1) {
-                    throw new Exception("Please run plan with Plan_Mode : Outlet|Time while Tellecalling flag is Yes|1|true");
-                }
-
-                if(plnParameter.getDistanceType() == 4){
+                //if(plnParameter.getDistanceType() == 4){
                     /**
                      * Apply Global sequence on all outlets
                      */
@@ -97,9 +75,10 @@ public class TerritoryPlannerProcessorImpl implements TerritoryPlannerProcessor 
 
                     plnParameter.setDistanceType(2);
                     model.setAllDistance(globalSequenceOutputModel.getAllDistance());
-                }
+                //}
 
                 workingDays = plnParameter.getWorkDayInWeek();
+                noOfSalesPersons = plnParameter.getNoOfSalesperson();
 
                 plnParameter.setDistanceToCentroid(distanceToCentroid);
                 plnParameter.setDistanceFactor(distanceFactor);

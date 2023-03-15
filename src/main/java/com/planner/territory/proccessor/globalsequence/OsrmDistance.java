@@ -1,3 +1,4 @@
+/*
 package com.planner.territory.proccessor.globalsequence;
 
 import java.text.DecimalFormat;
@@ -35,14 +36,16 @@ public class OsrmDistance {
 	@Autowired
 	Properties properties;
 
-	/**
+	*/
+/**
 	 * Get OSRM distance of given customer list
 	 * 
 	 * @param CustomerList
 	 * @param oSRM_BASE_URL
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	public MutableMap<String, Double> getOsrmDistance(MutableList<Customer> CustomerList, String oSRM_BASE_URL)
 			throws RhythmApplicationException {
 
@@ -55,13 +58,15 @@ public class OsrmDistance {
 
 	}
 
-	/**
+	*/
+/**
 	 * 
 	 * @param customerListSet
 	 * @param oSRM_BASE_URL
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	private MutableMap<String, Double> getCoodDistDuration(MutableList<MutableList<Customer>> customerListSet,
 			String oSRM_BASE_URL) throws RhythmApplicationException {
 		MutableMap<String, Double> allDistance = new UnifiedMap<String, Double>();
@@ -81,14 +86,16 @@ public class OsrmDistance {
 		return allDistance;
 	}
 
-	/**
+	*/
+/**
 	 * 
 	 * @param customerListSet
 	 * @param allDistance
 	 * @param oSRM_BASE_URL
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	private MutableMap<String, Double> getOneToOneDPGroupMap(MutableList<MutableList<Customer>> customerListSet,
 			MutableMap<String, Double> allDistance, String oSRM_BASE_URL) throws RhythmApplicationException {
 
@@ -109,11 +116,13 @@ public class OsrmDistance {
 		return allDistance;
 	}
 
-	/**
+	*/
+/**
 	 * 
 	 * @param customerList
 	 * @return
-	 */
+	 *//*
+
 	private MutableList<MutableList<Customer>> getDividedDataPoint(MutableList<Customer> customerList) {
 
 		MutableList<MutableList<Customer>> CustomerListSet = new FastList<>();
@@ -146,14 +155,16 @@ public class OsrmDistance {
 		return CustomerListSet;
 	}
 
-	/***
+	*/
+/***
 	 * Calculate Distance between all location using OSRM API
 	 * 
 	 * @param locationsList
 	 * @param OSRM_BASE_URL
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	public MutableMap<String, Double> calculateOSRMDistance(MutableList<Customer> customerList, String OSRM_BASE_URL)
 			throws RhythmApplicationException {
 
@@ -174,38 +185,44 @@ public class OsrmDistance {
 		}
 	}
 
-	/***
+	*/
+/***
 	 * add postFix to URL
 	 * 
 	 * @param url
 	 * @return
-	 */
+	 *//*
+
 	private StringBuilder getPostFix(StringBuilder url) {
 		url.append("?annotations=distance");
 		return url;
 	}
 
-	/***
+	*/
+/***
 	 * add preFix to URL
 	 * 
 	 * @param url
 	 * @param OSRM_BASE_URL
 	 * @return
-	 */
+	 *//*
+
 	private StringBuilder getPrefix(StringBuilder url, String OSRM_BASE_URL) {
 		url.append(OSRM_BASE_URL);
 		url.append(constants.getOSRM_TABLE_SECONDARY_URL());
 		return url;
 	}
 
-	/***
+	*/
+/***
 	 * create dynamic URL as per locations
 	 * 
 	 * @param url
 	 * @param OSRM_BASE_URL
 	 * @param locationsList
 	 * @return
-	 */
+	 *//*
+
 	private StringBuilder getDynamicURL(StringBuilder url, String OSRM_BASE_URL, MutableList<Customer> customerList) {
 		String origins = new String("");
 		DecimalFormat df = new DecimalFormat("###.#####");
@@ -219,7 +236,8 @@ public class OsrmDistance {
 		return url;
 	}
 
-	/***
+	*/
+/***
 	 * Take OSRM
 	 * 
 	 * @param response
@@ -227,7 +245,8 @@ public class OsrmDistance {
 	 * @param allDistance
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	private MutableMap<String, Double> setDistanceMatrix(StringBuffer response, MutableList<Customer> customerList,
 			MutableMap<String, Double> allDistance) throws RhythmApplicationException {
 		JSONObject myResponse = new JSONObject(response.toString());
@@ -240,14 +259,16 @@ public class OsrmDistance {
 		return allDistance;
 	}
 
-	/***
+	*/
+/***
 	 * 
 	 * @param i            source location index
 	 * @param source       source to destination distance array
 	 * @param allDistance
 	 * @param customerList
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	private void destinationIteration(int i, JSONArray source, MutableMap<String, Double> allDistance,
 			MutableList<Customer> customerList) throws RhythmApplicationException {
 		try {
@@ -267,14 +288,16 @@ public class OsrmDistance {
 		}
 	}
 
-	/***
+	*/
+/***
 	 * return distance between two customer
 	 * 
 	 * @param from
 	 * @param to
 	 * @return
 	 * @throws RhythmApplicationException
-	 */
+	 *//*
+
 	public double getdistanceBetweenTwoCustomer(Customer from, Customer to) throws RhythmApplicationException {
 		ImmutableMap<String, Object> baseurl = getMap(constants.getOSRM_BASE_URL());
 		String OSRM_BASE_URL = baseurl.get(constants.getCountry()).toString();
@@ -300,12 +323,14 @@ public class OsrmDistance {
 		}
 	}
 
-	/**
+	*/
+/**
 	 * get base URL map
 	 * 
 	 * @param oSRM_BASE_URL
 	 * @return
-	 */
+	 *//*
+
 	private ImmutableMap<String, Object> getMap(String oSRM_BASE_URL) {
 
 		JSONObject json = new JSONObject(oSRM_BASE_URL);
@@ -315,3 +340,4 @@ public class OsrmDistance {
 	}
 
 }
+*/

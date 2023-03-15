@@ -15,7 +15,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "TerritoryDistanceMatrix")
+@Table(name = "DistanceMatrix")
 @Getter
 @Setter
 public class DistanceMatrixEntity{

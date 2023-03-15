@@ -35,7 +35,7 @@ public class TerritoryPlanController {
     )
 
     @PostMapping(value = "territoryPlanner/createPlan")
-    public ResponseEntity<String> createPlan(@RequestBody Long planId) {
+    public ResponseEntity<String> createPlan(@RequestBody Integer planId) {
         log.info("In territory plan creation rest service....");
         try {
 

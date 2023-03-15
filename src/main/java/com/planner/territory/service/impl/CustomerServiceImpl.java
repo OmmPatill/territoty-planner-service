@@ -1,7 +1,7 @@
 package com.planner.territory.service.impl;
 
-import com.planner.territory.businessservice.DistanceMatrixBusinessService;
 import com.planner.territory.entity.CustomerEntity;
+import com.planner.territory.model.globalsequence.Customer;
 import com.planner.territory.repository.CustomerRepository;
 import com.planner.territory.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +16,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    @Autowired
-    DistanceMatrixBusinessService distanceMatrixBusinessService;
     @Override
     public List<Customer> getCustomerList() {
         List<CustomerEntity> customerEntityList = customerRepository.findAll();
@@ -25,11 +23,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerEntityList.stream().forEach(o->{
             Customer c = new Customer();
-            c.setCustomerId(o.getCustomerId());
+            c.setCustomerId(Math.toIntExact(o.getCustomerId()));
             c.setCustomerCode(o.getCustomerCode());
-            c.setCustomerName(o.getCustomerName());
             c.setLongitude(o.getLongitude());
-            c.setLattitude(o.getLattitude());
+            c.setLongitude(o.getLatitude());
             customerList.add(c);
         });
 
@@ -39,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Customer> calculateDistance() {
         List<Customer> customerList = getCustomerList();
-        return distanceMatrixBusinessService.calculateOutletDistance(customerList);
+        return null;//distanceMatrixBusinessService.calculateOutletDistance(customerList);
 
     }
 

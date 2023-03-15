@@ -1,8 +1,8 @@
 package com.planner.territory.controller;
 
+import com.planner.territory.model.globalsequence.Customer;
 import com.planner.territory.model.pjp.PlanParameter;
 import com.planner.territory.service.CustomerService;
-import com.planner.territory.service.TerritoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,9 +18,6 @@ public class CustomerController {
 
     @Autowired
     CustomerService customerService;
-
-    @Autowired
-    TerritoryService territoryService;
 
     @Operation(
             operationId = "createPlan",
@@ -39,7 +36,7 @@ public class CustomerController {
     @CrossOrigin(origins = "*")
     @GetMapping(value="/customer/createPlan")
     public String createPlan(PlanParameter planParameter){
-        territoryService.createPlan(planParameter);
+        //territoryService.createPlan(planParameter);
         return "create plan";
     }
 

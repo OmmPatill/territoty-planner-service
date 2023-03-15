@@ -22,9 +22,39 @@ public class CustomerEntity {
     @Column(name = "Customer_Code", nullable = false)
     private String customerCode;
 
-    @Column(name = "Lattitude", nullable = false)
-    private Double lattitude;
+    @Column(name = "Latitude", nullable = false)
+    private Double latitude;
 
     @Column(name = "Longitude", nullable = false)
     private Double longitude;
+
+    @Column(name = "Visit_Frequency")
+    private int visitFrequency;
+
+    @Column(name = "Visit_Duration")
+    private int visitDuration;
+
+    @Column(name = "Avg_Turnover")
+    private double avgTurnover;
+
+    @Column(name="Outlet_Type")
+    private String outletType;
+
+    @Column(name="Distributor_Code")
+    private String distributorCode;
+
+    @Column(name="Multiplier")
+    private double multiplier;
+
+    @Column(name="VisitSequence")
+    private int visitSequence;
+
+    @Column(name="Distance")
+    private double distance;
+
+    @Column(name="TravelingDistance")
+    private double travelingDistance;
+
+    @Column(name="TravelingTime")
+    private double travelingTime;
 }

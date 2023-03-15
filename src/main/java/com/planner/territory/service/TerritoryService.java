@@ -8,5 +8,5 @@ public interface TerritoryService {
 
     void createPlan(PlanParameter planParameter);
 
-    void createPlan(Long planId);
+    void createPlan(Integer planId) throws Exception;
 }

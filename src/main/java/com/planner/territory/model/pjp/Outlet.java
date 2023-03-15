@@ -2,16 +2,14 @@ package com.planner.territory.model.pjp;
 
 import com.planner.territory.model.kmean.Centroid;
 import com.planner.territory.model.kmean.Cluster;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Comparator;
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Outlet{

@@ -2,11 +2,12 @@ package com.planner.territory.proccessor;
 
 import com.planner.territory.model.pjp.data.TerritoryPlannerInputDataModel;
 import com.planner.territory.model.pjp.data.TerritoryPlannerOutputDataModel;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Component
 public interface TerritoryPlannerProcessor {
     public TerritoryPlannerOutputDataModel process(TerritoryPlannerInputDataModel model) throws Exception;
 }

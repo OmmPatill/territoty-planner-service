@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Territory_Plan_Parameter")
+@Table(name = "PlanParameter")
 @Getter
 @Setter
 public class PlanParameterEntity {
@@ -36,21 +36,6 @@ public class PlanParameterEntity {
         @Column(name = "Value_Per_Beat")
         private Integer valuePerBeat;
 
-        @Column(name = "Use_Delivery_Slot")
-        private Boolean useDeliverySlot;
-
-        @Column(name = "Reverse_Seq_Flag")
-        private Boolean reverseSeqFlag;
-
-        @Column(name = "Beat_Name_Flag")
-        private Boolean beatNameFlag;
-
-        @Column(name = "Mon_Thu_Flag")
-        private Boolean monThuFlag;
-
-        @Column(name = "Traffic_Time_Flag")
-        private Boolean trafficTimeFlag;
-
         @Column(name = "Territory_Loop")
         private Integer territoryLoop;
 
@@ -66,34 +51,14 @@ public class PlanParameterEntity {
         @Column(name = "Plan_For_Week")
         private Integer planForWeek;
 
-        @Column(name = "Telecalling_Plan_Flag")
-        private Boolean telecallingPlanFlag;
-
-        @Column(name = "Telecalling_Plan_Mode")
-        private String telecallingPlanMode;
-
-        @Column(name = "Per_Beat_Call_Time")
-        private Integer perBeatCallTime;
-
-        @Column(name = "Telecalling_Count")
-        private Integer telecallingCount;
-
         @Column(name = "Beat_Type")
         private String beatType;
 
-        // TODO foreign key from planDetails table remeber from screen when plan created
-        // first entry done in plandetails then planparameters table
         @Column(name = "Plan_Id", nullable = false)
         private Integer planId;
 
-        @Column(name = "No_Of_Calls_Per_Beat")
-        private Integer noOfCallsPerBeat;
-
         @Column(name = "Multiplier")
         private Integer multiplier;
-
-        @Column(name = "Half_Day_Flag")
-        private Boolean halfDayFlag;
 
         @Column(name = "Round_Trip_Time")
         private Integer roundTripTime;
